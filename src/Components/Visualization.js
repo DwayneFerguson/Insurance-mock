@@ -4,9 +4,9 @@ import Bar from './Bar';
 import axios from 'axios';
 import styles from '../App.css'; 
 import Popup from "reactjs-popup";
+import Overlay from 'react-bootstrap/Overlay'
 
 
-  
 class Visualization extends Component{
     
     constructor(props) {
@@ -62,14 +62,17 @@ class Visualization extends Component{
     
     render(){
         const PopupExample = () => (
-            <Popup trigger={<button>?</button>} position="top left">
+            <Popup trigger={<button>{this.state.recommendation_reasoning}</button>} 
+            position="right center"
+            on='hover'
+            >
               {close => (
-                <div>
+                <span>
                   {this.state.recommendationLong} 
                   <a className="close" onClick={close}>
                     &times;
                   </a>
-                </div>
+                </span>
               )}
             </Popup>
           );
@@ -108,7 +111,6 @@ class Visualization extends Component{
             </div>
             <div style={{fontSize: "20px"}}>
                 <PopupExample/>
-                {this.state.recommendation_reasoning}
             </div>
 
             
